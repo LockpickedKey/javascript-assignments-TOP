@@ -36,28 +36,31 @@
           </tbody>
         </table>
       </div>
-      
-      <div class="form hidden">
-        <h2>Adding/Editing a book</h2>
-        <input type="text" id="title" placeholder="Title">
-        <input type="text" id="author" placeholder="Author">
-        <input type="number" id="pages" placeholder="Pages" min="0">
-        <fieldset role="radiogroup">
-          <legend>Read book?</legend>
-          <label for="yes">
-            <input type="radio" id="yes" name="read" value="yes" checked>
-            <span>Yes</span>
-          </label>
-          <label for="no">
-            <input type="radio" id="no" name="read" value="no">
-            <span>No</span>
-          </label>
-        </fieldset>
-        <div class="button-group">
-          <button id="submit">Submit</button>
-          <button id="return">Return</button>
-       </div>
-      </div>
+      <dialog>
+        <div class="form hidden">
+          <button autofocus>Close</button>
+          <h2>Adding/Editing a book</h2>
+          <input type="text" id="title" placeholder="Title">
+          <input type="text" id="author" placeholder="Author">
+          <input type="number" id="pages" placeholder="Pages" min="0">
+          <fieldset role="radiogroup">
+            <legend>Read book?</legend>
+            <label for="yes">
+              <input type="radio" id="yes" name="read" value="yes" checked>
+              <span>Yes</span>
+            </label>
+            <label for="no">
+              <input type="radio" id="no" name="read" value="no">
+              <span>No</span>
+            </label>
+          </fieldset>
+          <div class="button-group">
+            <button id="submit">Submit</button>
+            <button id="return">Return</button>
+         </div>
+        </div>
+      </dialog>
+      <button id="show-dialog">Show the dialog</button>
     </main>
   </body>
 </html>
