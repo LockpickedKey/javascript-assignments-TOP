@@ -3,11 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Web font example</title>
+    <title>Library App</title>
     <link href="../../styles.css" rel="stylesheet" type="text/css">
     <script src="./library-js.js" defer></script>
   </head>
   <body>
-    test
+    <header>
+      <h1>The 4 O'clock Library</h1>
+    </header>
+    <main>
+      <button class="new">Add a book</button>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Read</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>foo</td>
+            <td>foo</td>
+            <td>foo</td>
+            <td>foo</td> <!-- make this a checkmark -->
+            <td><button>Change read status</button></td>
+            <td><button>Delete</button></td>
+          </tbody>
+        </table>
+      </div>
+    </main>
   </body>
 </html>
