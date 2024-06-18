@@ -1,20 +1,26 @@
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const closeButton = document.querySelector("dialog button");
+const confirmBtn = formDialog.querySelector("#submitButton");
 
 showButton.addEventListener("click", () => {
-  dialog.showModal();
+      dialog.showModal();
 });
 
 closeButton.addEventListener("click", () => {
-  dialog.close();
+      dialog.close();
+});
+
+confirmBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      dialog.close(); 
 });
 
 const myLibrary = [];
-const title = document.getElementById("title").value
-const author = document.getElementById("author").value
-const pages = document.getElementById("pages").value
-const read = document.getElementById("read").value
+const title = document.querySelector("#title").value;
+const author = document.querySelector("#author").value;
+const pages = document.querySelector("#pages").value;
+const read = document.querySelector("#read").value;
 
 function Book(title, author, pages, read){
       this.title = title;
