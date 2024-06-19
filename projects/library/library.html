@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Library App</title>
-    <link href="../../styles.css" rel="stylesheet" type="text/css">
+    <link href="./library-styles.css" rel="stylesheet" type="text/css">
     <script src="./library-js.js" defer></script>
   </head>
   <body>
@@ -39,24 +39,18 @@
       <dialog id="formDialog">
         <div class="form hidden">
           <button autofocus value="close" formmethod="dialog">Close</button>
-          <button id="submitButton" value="default">Submit your form</button>
           <h2>Adding/Editing a book</h2>
-          <input type="text" id="title" placeholder="Title">
-          <input type="text" id="author" placeholder="Author">
-          <input type="number" id="pages" placeholder="Pages" min="0">
+          <input type="text" id="title" placeholder="Title" required/>
+          <input type="text" id="author" placeholder="Author" required/>
+          <input type="number" id="pages" placeholder="Pages" min="0" required/>
           <fieldset role="radiogroup">
             <legend>Read book?</legend>
             <label for="yes">
-              <input type="radio" id="yes" name="read" value="yes" checked>
-              <span>Yes</span>
-            </label>
-            <label for="no">
-              <input type="radio" id="no" name="read" value="no">
-              <span>No</span>
+              <input type="checkbox" id="read"/> Yes / No
             </label>
           </fieldset>
           <div class="button-group">
-            <button id="submit">Submit</button>
+            <button id="submitButton" value="default">Submit your form</button>
             <button id="return">Return</button>
          </div>
         </div>

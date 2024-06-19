@@ -1,3 +1,4 @@
+const myLibrary = [];
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const closeButton = document.querySelector("dialog button");
@@ -13,14 +14,9 @@ closeButton.addEventListener("click", () => {
 
 confirmBtn.addEventListener("click", (event) => {
       event.preventDefault();
+      addBookToLibrary();
       dialog.close(); 
 });
-
-const myLibrary = [];
-const title = document.querySelector("#title").value;
-const author = document.querySelector("#author").value;
-const pages = document.querySelector("#pages").value;
-const read = document.querySelector("#read").value;
 
 function Book(title, author, pages, read){
       this.title = title;
@@ -30,6 +26,11 @@ function Book(title, author, pages, read){
 }
     
 function addBookToLibrary() {
+      const title = document.querySelector("#title").value;
+      const author = document.querySelector("#author").value;
+      const pages = document.querySelector("#pages").value;
+      const read = document.querySelector("#read").checked;
       let newBook = new Book(title, author, pages, read);
+      console.log(newBook);
       myLibrary.push(newBook);
 }
