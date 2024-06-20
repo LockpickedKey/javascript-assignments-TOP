@@ -12,12 +12,6 @@ closeButton.addEventListener("click", () => {
       dialog.close();
 });
 
-confirmBtn.addEventListener("click", (event) => {
-      event.preventDefault();
-      addBookToLibrary();
-      dialog.close(); 
-});
-
 function Book(title, author, pages, read){
       this.title = title;
       this.author = author;
@@ -34,3 +28,20 @@ function addBookToLibrary() {
       console.log(newBook);
       myLibrary.push(newBook);
 }
+
+function validateForm() {
+      const title = document.querySelector("#title").value;
+      const author = document.querySelector("#author").value;
+      const pages = document.querySelector("#pages").value;
+      if(title == "") return false;
+      if(author == "") return false;
+      if(pages == "") return false;
+}
+
+confirmBtn.addEventListener("click", (event) => {
+      if (validateForm() == false) return;
+      event.preventDefault();
+      addBookToLibrary();
+      /*update table*/
+      dialog.close(); 
+});
