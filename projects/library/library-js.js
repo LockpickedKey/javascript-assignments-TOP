@@ -41,7 +41,10 @@ function addBookToLibrary() {
 //     form.insertBefore(errorText, title);
 // }
 
-const removeError = (error) => {
+const removeError = () => {
+	titleErrorText.innerHTML = "";
+	authorErrorText.innerHTML = "";
+	pagesErrorText.innerHTML = "";
 }
 
 const validateForm = () => {
@@ -50,22 +53,22 @@ const validateForm = () => {
     const pages = document.querySelector("#pages");
     if (title.value == "") {
 		titleErrorText.innerHTML = "*Please enter a title";
-        return false;
-    } else removeError(title);
+    } else removeError();
 	if (author.value == "") {
 		authorErrorText.innerHTML = "*Please enter the author";
-	    return false;
     } else removeError();
 	if (pages.value == "") {
 		pagesErrorText.innerHTML = "*Please enter the page number";
-        return false;
     } else removeError();
+	if(title.value == "" || author.value == "" || pages.value == "") return false;
+	clearForm();
 }
 
 function clearForm() {
 	title.value = "";
 	author.value = "";
 	pages.value = "";
+	removeError();
 }
 
 confirmButton.addEventListener("click", (event) => {

@@ -37,15 +37,15 @@
         </table>
       </div>
       <dialog id="formDialog">
-        <div class="form-error-content">
-          <span id="titleErrorText" class="error-text"></span>
-          <span id="authorErrorText" class="error-text"></span>
-          <span id="pagesErrorText" class="error-text"></span>
-        </div>
         <div class="form">
           <button autofocus value="close" formmethod="dialog">Close</button>
           <button id="clear-form-button" formmethod="dialog">Clear</button>
           <h2>Adding/Editing a book</h2>
+          <div class="form-error-content">
+            <span id="titleErrorText" class="error-text"></span>
+            <span id="authorErrorText" class="error-text"></span>
+            <span id="pagesErrorText" class="error-text"></span>
+          </div>
           <input type="text" id="title" placeholder="Title" required/>
           <input type="text" id="author" placeholder="Author" required/>
           <input type="number" id="pages" placeholder="Pages" min="0" required/>
