@@ -26,7 +26,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody> 
             <td>foo</td>
             <td>foo</td>
             <td>foo</td>
@@ -37,8 +37,9 @@
         </table>
       </div>
       <dialog id="formDialog">
-        <div class="form hidden">
+        <div class="form">
           <button autofocus value="close" formmethod="dialog">Close</button>
+          <button id="clear-form-button" formmethod="dialog">Clear</button>
           <h2>Adding/Editing a book</h2>
           <input type="text" id="title" placeholder="Title" required/>
           <input type="text" id="author" placeholder="Author" required/>

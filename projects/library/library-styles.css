@@ -1,8 +1,15 @@
+
 input[type="text"]:required, input[type="number"]:required {
-      position: relative;
+    position: relative;
 }
+
+.error-text {
+    color: red;
+    font-size: 12px;
+}
+
 /* 
 input[type="text"]:required::before, input[type="number"]:required::before {
       content: "*";
       color: red;
-} */
+} */  
