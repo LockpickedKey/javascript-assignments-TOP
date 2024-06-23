@@ -4,7 +4,10 @@ const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const closeButton = document.querySelector("dialog button");
 const confirmButton = formDialog.querySelector("#submitButton");
-const clearButton = formDialog.querySelector("#clear-form-button")
+const clearButton = formDialog.querySelector("#clear-form-button");
+const titleErrorText = document.querySelector("#titleErrorText");
+const authorErrorText = document.querySelector("#authorErrorText");
+const pagesErrorText = document.querySelector("#pagesErrorText");
 
 showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -38,26 +41,26 @@ function addBookToLibrary() {
 //     form.insertBefore(errorText, title);
 // }
 
-// const removeError = (error) => {
-// }
+const removeError = (error) => {
+}
 
-// const validateForm = () => {
-//     const title = document.querySelector("#title");
-//     const author = document.querySelector("#author");
-//     const pages = document.querySelector("#pages");
-//     if (title.value == "") {
-// 		addError(title);
-//         return false;
-//     } else removeError(title);
-// 	if (author.value == "") {
-// 		addError(author);
-// 	    return false;
-//     } else removeError();
-// 	if (pages.value == "") {
-// 		addError(pages);
-//         return false;
-//     } else removeError();
-// }
+const validateForm = () => {
+    const title = document.querySelector("#title");
+    const author = document.querySelector("#author");
+    const pages = document.querySelector("#pages");
+    if (title.value == "") {
+		titleErrorText.innerHTML = "*Please enter a title";
+        return false;
+    } else removeError(title);
+	if (author.value == "") {
+		authorErrorText.innerHTML = "*Please enter the author";
+	    return false;
+    } else removeError();
+	if (pages.value == "") {
+		pagesErrorText.innerHTML = "*Please enter the page number";
+        return false;
+    } else removeError();
+}
 
 function clearForm() {
 	title.value = "";
