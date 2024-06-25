@@ -76,6 +76,18 @@ const changeReadStatus = (book) => {
     return readTd;
 }
 
+const deleteRow = (index) => {
+    let deleteTd = document.createElement('td');
+    let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', () => {
+      myLibrary.splice(index, 1);
+      updateTable();
+    });
+    deleteTd.appendChild(deleteButton);
+    return deleteTd;
+}
+
 const updateTable = () => {
     tbody.textContent = '';
     myLibrary.forEach((book) => {
@@ -85,6 +97,7 @@ const updateTable = () => {
     newTd.textContent = book[prop];
     row.appendChild(newTd);}); 
     row.appendChild(changeReadStatus(book));
+    row.appendChild(deleteRow());
     tbody.appendChild(row);
 });
 }
