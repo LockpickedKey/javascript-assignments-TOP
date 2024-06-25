@@ -64,14 +64,27 @@ function clearForm() {
 	removeError();
 }
 
+const changeReadStatus = (book) => {
+    let readTd = document.createElement('td');
+    let readButton = document.createElement('button');
+    readButton.textContent = 'Change read status';
+    readButton.addEventListener('click', () => {
+        book.read = !book.read;
+        updateTable();
+    });
+    readTd.appendChild(readButton);
+    return readTd;
+}
+
 const updateTable = () => {
+    tbody.textContent = '';
     myLibrary.forEach((book) => {
     let row = document.createElement('tr');
     Object.keys(book).forEach(prop => {
     let newTd = document.createElement('td');
     newTd.textContent = book[prop];
-    row.appendChild(newTd);
-    }); 
+    row.appendChild(newTd);}); 
+    row.appendChild(changeReadStatus(book));
     tbody.appendChild(row);
 });
 }
