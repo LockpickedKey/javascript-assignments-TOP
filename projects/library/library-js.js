@@ -8,6 +8,8 @@ const clearButton = formDialog.querySelector("#clear-form-button");
 const titleErrorText = document.querySelector("#titleErrorText");
 const authorErrorText = document.querySelector("#authorErrorText");
 const pagesErrorText = document.querySelector("#pagesErrorText");
+const table = document.querySelector('.table');
+const tbody = table.querySelector('tbody');
 
 showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -62,10 +64,23 @@ function clearForm() {
 	removeError();
 }
 
+const updateTable = () => {
+    myLibrary.forEach((book) => {
+    let row = document.createElement('tr');
+    Object.keys(book).forEach(prop => {
+    let newTd = document.createElement('td');
+    newTd.textContent = book[prop];
+    row.appendChild(newTd);
+    }); 
+    tbody.appendChild(row);
+});
+}
+  
 confirmButton.addEventListener("click", (event) => {
     if (validateForm() == false) return;
     event.preventDefault();
     addBookToLibrary();
+    updateTable();
     clearForm();
     dialog.close();
 });

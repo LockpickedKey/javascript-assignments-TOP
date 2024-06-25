@@ -12,11 +12,3 @@ input[type="text"]:required, input[type="number"]:required {
     color: red;
 	font-size: 12px;
 }
-
-
-
-/* 
-input[type="text"]:required::before, input[type="number"]:required::before {
-      content: "*";
-      color: red;
-} */  
