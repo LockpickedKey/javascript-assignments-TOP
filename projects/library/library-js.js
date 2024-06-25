@@ -25,21 +25,13 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const pages = document.querySelector("#pages").value;
-    const read = document.querySelector("#read").checked;
-    let newBook = new Book(title, author, pages, read);
-    console.log(newBook);
+    const titleValue = document.querySelector("#title").value;
+    const authorValue = document.querySelector("#author").value;
+    const pagesValue = document.querySelector("#pages").value;
+    const readValue = document.querySelector("#read").checked;
+    let newBook = new Book(titleValue, authorValue, pagesValue, readValue);
     myLibrary.push(newBook);
 }
-
-// const addError = (error) => {
-//     let errorText = document.createElement('div');
-//     errorText.textContent = `* Please enter an '${error.id}'`;
-//     errorText.classList.add('error-text');
-//     form.insertBefore(errorText, title);
-// }
 
 const removeError = () => {
 	titleErrorText.innerHTML = "";
@@ -61,7 +53,6 @@ const validateForm = () => {
 		pagesErrorText.innerHTML = "*Please enter the page number";
     } else removeError();
 	if(title.value == "" || author.value == "" || pages.value == "") return false;
-	clearForm();
 }
 
 function clearForm() {
@@ -75,10 +66,10 @@ confirmButton.addEventListener("click", (event) => {
     if (validateForm() == false) return;
     event.preventDefault();
     addBookToLibrary();
-    /*update table*/
+    clearForm();
     dialog.close();
 });
 
-clearButton.addEventListener("click", (event) => {
+clearButton.addEventListener("click", () => {
 	clearForm();
 });
