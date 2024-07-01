@@ -1,5 +1,5 @@
 function gameBoard() {
-    let gameBoard = [['','',''],['','',''],['','','']];
+    let board = [['','',''],['','',''],['','','']];
     let turnChecker = 0;
     let currentPlayer = 'X';
       
@@ -17,7 +17,14 @@ function gameBoard() {
             switchPlayer();
             win();
             turnChecker++
+        } 
+    }
+
+    function moveCheck(r, c){
+        if(board[r][c] !== ''){
+            return false;
         }
+        return true;
     }
         
     function win() {
@@ -46,7 +53,7 @@ function gameBoard() {
         gameBoard = [['','',''],['','',''],['','','']];
     }
 
-    return {switchPlayer, getCurrentPlayer, playerMove, win, resetBoard};
+    return {switchPlayer, getCurrentPlayer, moveCheck, playerMove, win, resetBoard};
 }
 
 const cells = document.querySelectorAll(".cell");
@@ -55,12 +62,18 @@ const cells = document.querySelectorAll(".cell");
 let game = gameBoard();
 
 function handleClick(e) {
+    const r = Number(e.target.parentNode.dataset.row);
+    const c = Number(e.target.dataset.col);
+    
+    if(!game.moveCheck(r, c)){
+        return;
+    }
     let curr = game.getCurrentPlayer();
     console.log(curr);
     const playerSign = document.createElement('p');
     playerSign.textContent = curr;
     e.target.append(playerSign);
-    game.switchPlayer();
+    game.playerMove();
 }
 
 function initGame(){
