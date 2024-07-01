@@ -1,12 +1,11 @@
 function gameBoard() {
     let gameBoard = [['','',''],['','',''],['','','']];
-    const playerX = 'X';
-    const playerO = 'O';
     let turnChecker = 0;
     let currentPlayer = 'X';
       
     function switchPlayer() {
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+        return currentPlayer;
     }
       
     function getCurrentPlayer() {
@@ -16,23 +15,10 @@ function gameBoard() {
     function playerMove() {
         if(turnChecker < 9){
             switchPlayer();
-            won();
+            win();
             turnChecker++
-            if (currentPlayer === 'X') {
-            // let move = prompt("Please enter your chosen move:");
-            console.log("[] [] []");
-            console.log("[] [] []");
-            console.log("[] [] []");
-            gameBoard[0][1] = 'X';
-            return gameBoard;
-            } else {
-                console.log("[] [] []");
-                console.log("[] [] []");
-                console.log("[] [] []");
-                gameBoard[0][1] = 'O';
-                return gameBoard;  
-            }} else return 0;
         }
+    }
         
     function win() {
         for(let i = 0; i < 3; i++){
@@ -63,6 +49,26 @@ function gameBoard() {
     return {switchPlayer, getCurrentPlayer, playerMove, win, resetBoard};
 }
 
-    // UI
+const cells = document.querySelectorAll(".cell");
 
-    let game = gameBoard();
+    // UI
+let game = gameBoard();
+
+function handleClick(e) {
+    let curr = game.getCurrentPlayer();
+    console.log(curr);
+    const playerSign = document.createElement('p');
+    playerSign.textContent = curr;
+    e.target.append(playerSign);
+    game.switchPlayer();
+}
+
+function initGame(){
+    game.resetBoard();
+    cells.forEach(cell => {
+        cell.innerHTML = "";
+        cell.addEventListener('click', handleClick)
+    });
+}
+
+initGame();

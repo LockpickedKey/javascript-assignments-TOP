@@ -23,3 +23,13 @@ button {
       height: 50px;
       border: 0;
 }
+
+.button-O {
+      content: 'O';
+      color: green;
+}
+
+.button-X {
+      content: 'X';
+      color: red;
+}
